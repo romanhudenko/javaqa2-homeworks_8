@@ -9,6 +9,7 @@ public class Radio {
     public int getStation() {
         return station;
     }
+
     public void setStation(int value) {
         if (value < minStation) {
             return;
@@ -18,12 +19,14 @@ public class Radio {
         }
         station = value;
     }
+
     public void next() {
         station++;
         if (station > maxStation) {
             station = minStation;
         }
     }
+
     public void prev() {
         station--;
         if (station < minStation) {
@@ -34,11 +37,13 @@ public class Radio {
     public int getVolume() {
         return volume;
     }
+
     public void increaseVolume() {
         if (volume < 10) {
             volume++;
         }
     }
+
     public void decreaseVolume() {
         if (volume > 0) {
             volume--;

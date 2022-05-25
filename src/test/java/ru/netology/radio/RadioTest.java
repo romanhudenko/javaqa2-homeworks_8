@@ -11,6 +11,7 @@ public class RadioTest {
         int expected = 5;
         Assertions.assertEquals(expected, radio.getStation());
     }
+
     @Test
     public void setStationNegativeTooHigh() {
         Radio radio = new Radio();
@@ -18,6 +19,7 @@ public class RadioTest {
         int expected = 4;
         Assertions.assertEquals(expected, radio.getStation());
     }
+
     @Test
     public void setStationNegativeTooLow() {
         Radio radio = new Radio();
@@ -25,6 +27,7 @@ public class RadioTest {
         int expected = 4;
         Assertions.assertEquals(expected, radio.getStation());
     }
+
     @Test
     public void nextStation() {
         Radio radio = new Radio();
@@ -32,6 +35,7 @@ public class RadioTest {
         int expected = 5;
         Assertions.assertEquals(expected, radio.getStation());
     }
+
     @Test
     public void nextStationLoop() {
         Radio radio = new Radio();
@@ -40,6 +44,7 @@ public class RadioTest {
         int expected = 0;
         Assertions.assertEquals(expected, radio.getStation());
     }
+
     @Test
     public void prevStation() {
         Radio radio = new Radio();
@@ -48,6 +53,7 @@ public class RadioTest {
         int expected = 1;
         Assertions.assertEquals(expected, radio.getStation());
     }
+
     @Test
     public void prevStationLoop() {
         Radio radio = new Radio();
@@ -56,6 +62,7 @@ public class RadioTest {
         int expected = 9;
         Assertions.assertEquals(expected, radio.getStation());
     }
+
     @Test
     public void increaseVolumePositive() {
         Radio radio = new Radio();
@@ -63,6 +70,7 @@ public class RadioTest {
         int expected = 6;
         Assertions.assertEquals(expected, radio.getVolume());
     }
+
     @Test
     public void increaseVolumeNegative() {
         Radio radio = new Radio();
@@ -72,6 +80,7 @@ public class RadioTest {
         int expected = 10;
         Assertions.assertEquals(expected, radio.getVolume());
     }
+
     @Test
     public void decreaseVolumeNegative() {
         Radio radio = new Radio();
@@ -81,6 +90,7 @@ public class RadioTest {
         int expected = 0;
         Assertions.assertEquals(expected, radio.getVolume());
     }
+
     @Test
     public void decreaseVolumePositive() {
         Radio radio = new Radio();
