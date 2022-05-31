@@ -14,9 +14,9 @@ public class RadioTest {
 
     @Test
     public void setStationNegativeTooHigh() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setStation(15);
-        int expected = 4;
+        int expected = 5;
         Assertions.assertEquals(expected, radio.getStation());
     }
 
@@ -24,7 +24,7 @@ public class RadioTest {
     public void setStationNegativeTooLow() {
         Radio radio = new Radio();
         radio.setStation(-1);
-        int expected = 4;
+        int expected = 5;
         Assertions.assertEquals(expected, radio.getStation());
     }
 
@@ -32,16 +32,16 @@ public class RadioTest {
     public void nextStation() {
         Radio radio = new Radio();
         radio.next();
-        int expected = 5;
+        int expected = 6;
         Assertions.assertEquals(expected, radio.getStation());
     }
 
     @Test
     public void nextStationLoop() {
-        Radio radio = new Radio();
-        radio.setStation(9);
+        Radio radio = new Radio(10);
+        radio.setStation(10);
         radio.next();
-        int expected = 0;
+        int expected = 1;
         Assertions.assertEquals(expected, radio.getStation());
     }
 
@@ -56,10 +56,10 @@ public class RadioTest {
 
     @Test
     public void prevStationLoop() {
-        Radio radio = new Radio();
-        radio.setStation(0);
+        Radio radio = new Radio(10);
+        radio.setStation(1);
         radio.prev();
-        int expected = 9;
+        int expected = 10;
         Assertions.assertEquals(expected, radio.getStation());
     }
 
@@ -67,24 +67,24 @@ public class RadioTest {
     public void increaseVolumePositive() {
         Radio radio = new Radio();
         radio.increaseVolume();
-        int expected = 6;
+        int expected = 51;
         Assertions.assertEquals(expected, radio.getVolume());
     }
 
     @Test
     public void increaseVolumeNegative() {
         Radio radio = new Radio();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 51; i++) {
             radio.increaseVolume();
         }
-        int expected = 10;
+        int expected = 100;
         Assertions.assertEquals(expected, radio.getVolume());
     }
 
     @Test
     public void decreaseVolumeNegative() {
         Radio radio = new Radio();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 51; i++) {
             radio.decreaseVolume();
         }
         int expected = 0;
@@ -95,7 +95,14 @@ public class RadioTest {
     public void decreaseVolumePositive() {
         Radio radio = new Radio();
         radio.decreaseVolume();
-        int expected = 4;
+        int expected = 49;
         Assertions.assertEquals(expected, radio.getVolume());
+    }
+
+    @Test
+    public void userDefinedStationsCount() {
+        Radio radio = new Radio(50);
+        int expected = 50;
+        Assertions.assertEquals(expected, radio.getStationsCount());
     }
 }
